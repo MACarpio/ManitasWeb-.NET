@@ -1,0 +1,25 @@
+@model ManitasWeb.Models.Producto
+@{
+  ViewData["Title"] = "Details";
+}
+
+<div class="primer"></div>
+<div class="container-detalles">
+  <div class="seccion-titulo titulo-detalles">
+    <h5 class="titulo-prim">@Html.DisplayFor(model => model.Nombre)</h5>
+  </div>
+  <div class="img-detalles">
+    <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+      alt="@Html.DisplayFor(model => model.ImagenNom)" />
+  </div>
+  <div class="info-detalles">
+    <label class="dec-label">Descripción</label>
+    <p class="desc-product">@Html.DisplayFor(model => model.Descripcion)</p>
+    <label class="dec-label">Categoria</label>
+    <p class="desc-product">@Html.DisplayFor(model => model.Categ.NomCategoria)</p>
+    <label class="dec-label">Material</label>
+    <p class="desc-product">@Html.DisplayFor(model => model.Mater.NomMaterial)</p>
+    <label class="dec-label">Precio</label>
+    <h5 class="desc-precio">S/ @Html.DisplayFor(model => model.Precio)</h5>
+  </div>
+</div>

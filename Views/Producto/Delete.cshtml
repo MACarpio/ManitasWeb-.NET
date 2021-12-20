@@ -1,0 +1,66 @@
+@model ManitasWeb.Models.Producto
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="seccion-titulo">
+    <h5 class="titulo-prim">Eliminar</h5>
+</div>
+<div class="seccion-titulo">
+    <h5 class="titulo-prim">Estas seguro que quieres eliminar este preducto?</h5>
+</div>
+<div class="crud-producto">
+    <h4>Producto</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            Nombre
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Nombre)
+        </dd>
+        <dt class="col-sm-2">
+            Descripción
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+        <dt class="col-sm-2">
+            Categoría
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Categ.NomCategoria)
+        </dd>
+        <dt class="col-sm-2">
+            Género
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Mater.NomMaterial)
+        </dd>
+        <dt class="col-sm-2">
+            Precio
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Precio)
+        </dd>
+        <dt class="col-sm-2">
+            Registro
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Registro)
+        </dd>
+        <dt class="col-sm-2">
+            Estado
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="ELIMINAR" class="btn btn-eliminar" /> |
+        <a asp-action="Index" class="btn btn-prim">Regresar al catálogo</a>
+    </form>
+</div>

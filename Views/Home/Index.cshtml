@@ -1,0 +1,179 @@
+﻿@model dynamic;
+@using System.Collections.Generic;
+
+@{
+    ViewData["Title"] = "Home";
+    IEnumerable<ManitasWeb.Models.Producto> product = new List<Producto>();
+    IEnumerable<ManitasWeb.Models.Material> material = new List<Material>();
+    IEnumerable<ManitasWeb.Models.Categoria> categoria = new List<Categoria>();
+    product = @Model.prod;
+    material = @Model.mate;
+    categoria = @Model.cate;
+}
+<!-- home section starts  -->
+<div class="primer"></div>
+<section class="home" id="home">
+
+    <div class="content">
+        <h3>Las mejores <span>manualidades</span> para ti</h3>
+        <p>Manitos Creativas te ofrece, hermosas manualidades para todos los gustos</p>
+        <a href="#" class="btn">Ver Productos</a>
+    </div>
+
+</section>
+
+<!-- home section ends -->
+
+<!-- features section starts  -->
+
+<section class="features" id="features">
+
+    <h1 class="heading"> Quienes <span>Somos</span> </h1>
+
+    <div class="box-container">
+
+        <div class="box">
+            <h1 class="heading" style="font-size: 2.5rem;"><span>Manitas Creativas</span></h1>
+            <p>Manitas Creativas es Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsum quae
+                expedita,
+                non beatae et, illo velit cum labore, nesciunt recusandae id illum voluptates modi nam neque rem ea
+                vero.</p>
+            <p>Manitas Creativas es Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsum quae
+                expedita,
+                non beatae et, illo velit cum labore, nesciunt recusandae id illum voluptates modi nam neque rem ea
+                vero.</p>
+        </div>
+
+        <div class="box"
+            style="background-image: url(/image/banner-bg1.jpg);background-size:cover;display:flex;align-items:end;justify-content:center">
+            <h1 class="heading" style="font-size: 2.5rem;"><span>Siempre <br> creando</span></h1>
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- features section ends -->
+
+<!-- products section starts  -->
+
+<section class="products" id="products">
+
+    <h1 class="heading"> Nuestros <span>productos</span> </h1>
+
+    <div class="swiper product-slider">
+        <div class="swiper-wrapper">
+            @foreach (var item in product)
+            {
+                if (item.Home.Equals("Home"))
+                {
+                    <div class="swiper-slide box">
+                        <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
+                        <h3>@item.Nombre</h3>
+                        <div class="price"> s/ @item.Precio </div>
+                        <a href="#" class="btn">Detalles</a>
+                    </div>
+                }
+            }
+        </div>
+
+    </div>
+</section>
+
+<!-- products section ends -->
+
+<!-- categories section starts  -->
+
+<section class="categories" id="categories">
+
+    <h1 class="heading">Nuestras <span>Categorias</span> </h1>
+
+    <div class="box-container">
+        @foreach (var item in categoria)
+        {
+            <div class="box">
+                <img src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })" alt="">
+                <h3>@item.NomCategoria</h3>
+                <a href="#" class="btn">ver mas</a>
+            </div>
+        }
+    </div>
+
+</section>
+
+<!-- categories section ends -->
+
+<!-- review section starts  -->
+
+<section class="review" id="review">
+
+    <h1 class="heading"> Administrador <span>Empresa</span> </h1>
+
+    <div class="swiper review-slider">
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide box">
+                <img src="image/pic-1.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime
+                    ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/pic-2.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime
+                    ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/pic-3.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime
+                    ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+            <div class="swiper-slide box">
+                <img src="image/pic-4.png" alt="">
+                <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Unde sunt fugiat dolore ipsum id est maxime
+                    ad tempore quasi tenetur.</p>
+                <h3>john deo</h3>
+                <div class="stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- review section ends -->

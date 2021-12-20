@@ -1,0 +1,55 @@
+@model dynamic;
+@using System.Collections.Generic;
+
+@{
+  ViewData["Title"] = "Catalogo";
+  IEnumerable<ManitasWeb.Models.Producto> product = new List<Producto>();
+  IEnumerable<ManitasWeb.Models.Material> material = new List<Material>();
+  IEnumerable<ManitasWeb.Models.Categoria> categoria = new List<Categoria>();
+  product = @Model.prod;
+  material = @Model.mate;
+  categoria = @Model.cate;
+}
+<div class="primer"></div>
+<h1 class="heading"> Nuestro <span>@ViewData["Title"]</span> </h1>
+<div class="seccion-titulo">
+  <h5 class="titulo-seccion">@ViewData["Message"]</h5>
+</div>
+<div class="catalogo">
+  <div class="contenedor-filtro">
+    <form action="">
+      <div class="form-select">
+        <label for="">categoria</label>
+        <select name="Cat">
+          <option value="0" selected>Todos</option>
+          @foreach (var item in categoria)
+          {
+            <option value="@item.Id">@item.NomCategoria</option>
+          }
+        </select>
+      </div>
+      <div class="form-select">
+        <label for="">material</label>
+        <select name="Mat">
+          <option value="0" selected>Todos</option>
+          @foreach (var item in material)
+          {
+            <option value="@item.Id">@item.NomMaterial</option>
+          }
+        </select>
+      </div>
+      <button class="btn" type="submit">Buscar</button>
+    </form>
+  </div>
+  <div class="contenedor-catalogo">
+    @foreach (var item in product)
+    {
+      <div class="box">
+        <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
+        <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+        <p>S/ @Html.DisplayFor(modelItem => item.Precio)</p>
+        <a class="btn" asp-action="Details" asp-route-Id="@item.Id">Detalles</a>
+      </div>
+    }
+  </div>
+</div>
