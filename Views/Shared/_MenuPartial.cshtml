@@ -1,0 +1,26 @@
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    IdentityUser myidentity = await Task.Run(() => UserManager.GetUserAsync(User));
+    var roles = await Task.Run(() => UserManager.GetRolesAsync(myidentity));
+    <nav class="navbar">
+        <a asp-controller="Home" asp-action="Index">Inicio</a>
+        <a asp-controller="Catalogo" asp-action="Index" asp-route-Cat="0" asp-route-Mat="0">Productos</a>
+        <a href="#categories">Categorias</a>
+        <a href="#review">Nosotros</a>
+    </nav>
+
+}
+else
+{
+    <nav class="navbar">
+        <a asp-controller="Home" asp-action="Index">Inicio</a>
+        <a asp-controller="Catalogo" asp-action="Index" asp-route-Cat="0" asp-route-Mat="0">Productos</a>
+        <a href="#categories">Categorias</a>
+        <a href="#review">Nosotros</a>
+        <a asp-controller="Categoria" asp-action="Create">Contactanos</a>
+    </nav>
+}

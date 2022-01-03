@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - ManitasWeb</title>
+    <title>ManitasWeb</title>
     <link rel="stylesheet" href="~/css/site.css">
     <script src="https://kit.fontawesome.com/6817716545.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
@@ -15,39 +15,13 @@
     <header class="header">
 
         <a href="#" class="logo"> <i class="fas fa-hands"></i> Creativas </a>
-
-        <nav class="navbar">
-            <a asp-controller="Home" asp-action="Index">Inicio</a>
-            <a asp-controller="Catalogo" asp-action="Index" asp-route-Cat="0" asp-route-Mat="0">Productos</a>
-            <a asp-controller="Producto" asp-action="Create">+ productos</a>
-            <a href="#categories">Categorias</a>
-            <a href="#review">Nosotros</a>
-            <a asp-controller="Categoria" asp-action="Create">Contactanos</a>
-        </nav>
-
-        <div class="icons">
-            <div class="fas fa-bars" id="menu-btn"></div>
-            <div class="fas fa-search" id="search-btn"></div>
-            <div class="fas fa-user" id="login-btn"></div>
-        </div>
-
-        <form action="" class="search-form">
-            <input type="search" id="search-box" placeholder="search here...">
-            <label for="search-box" class="fas fa-search"></label>
-        </form>
-
-        <form action="" class="login-form">
-            <h3>login now</h3>
-            <input type="email" placeholder="your email" class="box">
-            <input type="password" placeholder="your password" class="box">
-            <p>forget your password <a href="#">click here</a></p>
-            <p>don't have an account <a href="#">create now</a></p>
-            <input type="submit" value="login now" class="btn">
-        </form>
+        <partial name="_MenuPartial" />
+        <partial name="_LoginPartial" />
 
     </header>
 
     <main role="main">
+        <div class="primer"></div>
         @RenderBody()
     </main>
 
