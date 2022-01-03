@@ -245,12 +245,6 @@ section {
   padding: 0.5rem 0;
 }
 
-.products .product-slider .box .stars i {
-  font-size: 1.7rem;
-  color: var(--color-prim);
-  padding: 0.5rem 0;
-}
-
 .categories .box-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr));
@@ -534,6 +528,11 @@ section {
     margin: 2rem 2.5rem;
     display: block;
   }
+  .header .add-categ a {
+    font-size: 2rem;
+    margin: 2rem 2.5rem;
+    display: block;
+  }
 }
 
 @media (max-width: 450px) {
@@ -741,58 +740,23 @@ section {
   transition: 0.4s linear;
 }
 
-.header .add-categ .box {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  position: relative;
-  margin: 1rem 0;
-}
-.header .add-categ .box img {
-  height: 10rem;
-}
-
-.header .add-categ .box .fa-trash {
-  font-size: 2rem;
-  position: absolute;
-  top: 50%;
-  right: 2rem;
-  cursor: pointer;
-  color: var(--light-color);
-  transform: translateY(-50%);
-}
-
-.header .add-categ .box .fa-trash:hover {
-  color: var(--orange);
-}
-
-.header .add-categ .box .content h3 {
-  color: var(--black);
-  font-size: 1.7rem;
-  padding-bottom: 1rem;
-}
-
-.header .add-categ .box .content span {
-  color: var(--light-color);
-  font-size: 1.6rem;
-}
-
-.header .add-categ .box .content .quantity {
-  padding-left: 1rem;
-}
-
-.header .add-categ .total {
-  font-size: 2.5rem;
-  padding: 1rem 0;
-  text-align: center;
-  color: var(--black);
-}
-
-.header .add-categ .btn {
+.header .add-categ a {
+  font-size: 1.9rem;
+  margin: 2rem 2rem;
   display: block;
-  text-align: center;
-  margin: 1rem;
+  color: var(--black);
+}
+
+.header .add-categ a:hover {
+  color: var(--color-prim);
 }
 .logout-btn {
   display: inline-block;
+}
+@media (max-width: 768px) {
+  .header .add-categ a {
+    font-size: 2rem;
+    margin: 2rem 2.5rem;
+    display: block;
+  }
 }

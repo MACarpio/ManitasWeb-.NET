@@ -63,13 +63,13 @@ namespace ManitasWeb.Controllers
         {
             var producto = _context.Producto.Find(id);
             byte[] imagen = producto.Imagen;
-            return File(imagen, "images/*");
+            return File(imagen, "images/jpg");
         }
         public IActionResult MostrarImagenCat(int id)
         {
             var producto = _context.Categoria.Find(id);
             byte[] imagen = producto.Imagen;
-            return File(imagen, "images/*");
+            return File(imagen, "images/jpg");
         }
         public IActionResult ObtenerMaterial()
         {

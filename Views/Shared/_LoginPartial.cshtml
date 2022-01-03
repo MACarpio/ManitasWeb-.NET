@@ -16,16 +16,12 @@
 }
 else
 {
-    <div class="fas fa-bars" id="menu-btn"></div>
+    <div class="icons">
+        <div class="fas fa-bars" id="menu-btn"></div>
+    </div>
 }
 <div class="add-categ">
-    <div class="box">
-        <a asp-controller="Categoria" asp-action="Create"> Add Categoria</a>
-    </div>
-    <div class="box">
-        <a asp-controller="Material" asp-action="Create"> Add Material</a>
-    </div>
-    <div class="box">
-        <a asp-controller="Producto" asp-action="Create"> Add Producto</a>
-    </div>
+    <a asp-controller="Categoria" asp-action="Create"> Add Categoria</a>
+    <a asp-controller="Material" asp-action="Create"> Add Material</a>
+    <a asp-controller="Producto" asp-action="Create"> Add Producto</a>
 </div>
