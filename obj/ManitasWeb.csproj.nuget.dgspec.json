@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj": {}
+    "d:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj": {}
   },
   "projects": {
-    "D:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj": {
+    "d:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
+        "projectUniqueName": "d:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
         "projectName": "ManitasWeb",
-        "projectPath": "D:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
+        "projectPath": "d:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
         "packagesPath": "C:\\Users\\mauri\\.nuget\\packages\\",
-        "outputPath": "D:\\Proyectos\\ManitasWeb\\obj\\",
+        "outputPath": "d:\\Proyectos\\ManitasWeb\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\mauri\\AppData\\Roaming\\NuGet\\NuGet.Config"
