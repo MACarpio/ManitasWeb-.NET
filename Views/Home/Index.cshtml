@@ -64,16 +64,19 @@
 
     <div class="swiper product-slider">
         <div class="swiper-wrapper">
-            @foreach (var item in product)
+            @if (product != null)
             {
-                if (item.Home.Equals("Home"))
+                @foreach (var item in product)
                 {
-                    <div class="swiper-slide box">
-                        <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
-                        <h3>@item.Nombre</h3>
-                        <div class="price"> s/ @item.Precio </div>
-                        <a href="#" class="btn">Detalles</a>
-                    </div>
+                    if (item.Home.Equals("Home"))
+                    {
+                        <div class="swiper-slide box">
+                            <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
+                            <h3>@item.Nombre</h3>
+                            <div class="price"> s/ @item.Precio </div>
+                            <a href="#" class="btn">Detalles</a>
+                        </div>
+                    }
                 }
             }
         </div>
@@ -88,13 +91,16 @@
     <h1 class="heading">Nuestras <span>Categorias</span> </h1>
     <div class="swiper product-slider">
         <div class="swiper-wrapper">
-            @foreach (var item in categoria)
+            @if (categoria != null)
             {
-                <div class="swiper-slide box">
-                    <img src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })">
-                    <h3>@item.NomCategoria</h3>
-                    <a href="#" class="btn">Detalles</a>
-                </div>
+                @foreach (var item in categoria)
+                {
+                    <div class="swiper-slide box">
+                        <img src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })">
+                        <h3>@item.NomCategoria</h3>
+                        <a href="#" class="btn">Detalles</a>
+                    </div>
+                }
             }
         </div>
     </div>

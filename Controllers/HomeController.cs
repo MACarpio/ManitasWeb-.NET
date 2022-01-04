@@ -22,7 +22,7 @@ namespace ManitasWeb.Controllers
             _context = context;
             _logger = logger;
         }
-        public async Task<IActionResult> Index(int? id)
+        public async Task<IActionResult> Index()
         {
             dynamic model = new ExpandoObject();
             var productos = await _context.Producto.ToListAsync();
@@ -31,7 +31,7 @@ namespace ManitasWeb.Controllers
             model.prod = productos;
             model.mate = materiales;
             model.cate = categorias;
-            return View("Index", model);
+            return View(model);
         }
 
         public IActionResult Privacy()
