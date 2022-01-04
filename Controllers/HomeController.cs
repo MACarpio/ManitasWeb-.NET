@@ -26,10 +26,8 @@ namespace ManitasWeb.Controllers
         {
             dynamic model = new ExpandoObject();
             var productos = await _context.Producto.ToListAsync();
-            var materiales = await _context.Material.ToListAsync();
             var categorias = await _context.Categoria.ToListAsync();
             model.prod = productos;
-            model.mate = materiales;
             model.cate = categorias;
             return View(model);
         }

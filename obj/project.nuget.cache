@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "fMzDBZH3bTF5wv4pB+Py3axwpVvUGJs7FNXuNxITCIxTfq0jF/9KVNs+PEUkL3g7nhX8QyjJ51uSYYzqCnjdow==",
+  "dgSpecHash": "3hFCGZTdypSs9ABUrJ718afIdmgTBrqAsi8kHBNScA2XUcuU6QP5tVCIM1npY5Q1qxt9QNUIN6Ex73dKO30gkw==",
   "success": true,
-  "projectFilePath": "d:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
+  "projectFilePath": "D:\\Proyectos\\ManitasWeb\\ManitasWeb.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mauri\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mauri\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.8\\microsoft.aspnetcore.cryptography.internal.5.0.8.nupkg.sha512",

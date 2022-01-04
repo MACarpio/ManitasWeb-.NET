@@ -4,10 +4,8 @@
 @{
     ViewData["Title"] = "Home";
     IEnumerable<ManitasWeb.Models.Producto> product = new List<Producto>();
-    IEnumerable<ManitasWeb.Models.Material> material = new List<Material>();
     IEnumerable<ManitasWeb.Models.Categoria> categoria = new List<Categoria>();
     product = @Model.prod;
-    material = @Model.mate;
     categoria = @Model.cate;
 }
 <!-- home section starts  -->
@@ -64,12 +62,9 @@
 
     <div class="swiper product-slider">
         <div class="swiper-wrapper">
-            @if (product != null)
-            {
-                @foreach (var item in product)
+        @foreach (var item in product)
                 {
-                    if (item.Home.Equals("Home"))
-                    {
+                    @if(item.Home =="Home"){
                         <div class="swiper-slide box">
                             <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
                             <h3>@item.Nombre</h3>
@@ -78,9 +73,6 @@
                         </div>
                     }
                 }
-            }
-        </div>
-
     </div>
 </section>
 
@@ -91,17 +83,16 @@
     <h1 class="heading">Nuestras <span>Categorias</span> </h1>
     <div class="swiper product-slider">
         <div class="swiper-wrapper">
-            @if (categoria != null)
+
+            @foreach (var item in categoria)
             {
-                @foreach (var item in categoria)
-                {
-                    <div class="swiper-slide box">
-                        <img src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })">
-                        <h3>@item.NomCategoria</h3>
-                        <a href="#" class="btn">Detalles</a>
-                    </div>
-                }
+                <div class="swiper-slide box">
+                    <img src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })">
+                    <h3>@item.NomCategoria</h3>
+                    <a href="#" class="btn">Detalles</a>
+                </div>
             }
+
         </div>
     </div>
     <!-- categories section ends -->
