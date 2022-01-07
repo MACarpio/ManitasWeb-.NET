@@ -1,66 +1,70 @@
 @model ManitasWeb.Models.Producto
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Eliminar Producto";
 }
 
-<div class="seccion-titulo">
-    <h5 class="titulo-prim">Eliminar</h5>
-</div>
-<div class="seccion-titulo">
-    <h5 class="titulo-prim">Estas seguro que quieres eliminar este preducto?</h5>
-</div>
-<div class="crud-producto">
-    <h4>Producto</h4>
+<h1 class="heading"><span>@ViewData["Title"]</span></h1>
+<div class="delete-crud">
+    <h5 class="titulo-prim">Estas seguro que quieres eliminar este producto?</h5>
     <hr />
-    <dl class="row">
-        <dt class="col-sm-2">
-            Nombre
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Nombre)
-        </dd>
-        <dt class="col-sm-2">
-            Descripción
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Descripcion)
-        </dd>
-        <dt class="col-sm-2">
-            Categoría
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Categ.NomCategoria)
-        </dd>
-        <dt class="col-sm-2">
-            Género
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Mater.NomMaterial)
-        </dd>
-        <dt class="col-sm-2">
-            Precio
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Precio)
-        </dd>
-        <dt class="col-sm-2">
-            Registro
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Registro)
-        </dd>
-        <dt class="col-sm-2">
-            Estado
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Estado)
-        </dd>
-    </dl>
+
+    <div>
+
+        <div class="info-delete">
+            <div class="delete-img">
+                <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=@Model.Id })">
+            </div>
+            <div class="delete-info">
+                <dt class="nom-info">
+                    Nombre :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Nombre)
+                </dd>
+                <dt class="nom-info">
+                    Descripción :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Descripcion)
+                </dd>
+                <dt class="nom-info">
+                    Categoría :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Categ.NomCategoria)
+                </dd>
+                <dt class="nom-info">
+                    Material :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Mater.NomMaterial)
+                </dd>
+                <dt class="nom-info">
+                    Precio :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Precio)
+                </dd>
+                <dt class="nom-info">
+                    Registro :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Registro)
+                </dd>
+                <dt class="nom-info">
+                    Estado :
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.Estado)
+                </dd>
+            </div>
+        </div>
+    </div>
 
     <form asp-action="Delete">
         <input type="hidden" asp-for="Id" />
-        <input type="submit" value="ELIMINAR" class="btn btn-eliminar" /> |
-        <a asp-action="Index" class="btn btn-prim">Regresar al catálogo</a>
+        <input type="submit" value="ELIMINAR" class="btn btn-eliminar" />
+        <a asp-action="Index" class="btn btn-prim">Regresar a los productos</a>
     </form>
 </div>

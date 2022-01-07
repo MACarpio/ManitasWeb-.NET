@@ -1,26 +1,57 @@
-@model IEnumerable<ManitasWeb.Models.Producto>
+@model dynamic;
+@using System.Collections.Generic;
 
 @{
     ViewData["Title"] = "Catalogo";
+    IEnumerable<ManitasWeb.Models.Producto> product = new List<Producto>();
+    IEnumerable<ManitasWeb.Models.Material> material = new List<Material>();
+    IEnumerable<ManitasWeb.Models.Categoria> categoria = new List<Categoria>();
+    product = @Model.prod;
+    material = @Model.mate;
+    categoria = @Model.cate;
 }
 
-<div class="seccion-titulo">
-    <h5 class="titulo-prim">@ViewData["Title"]</h5>
-</div>
+<h1 class="heading"> Nuestro <span>@ViewData["Title"]</span> </h1>
 <div class="seccion-titulo">
     <h5 class="titulo-seccion">@ViewData["Message"]</h5>
 </div>
-<div class="contenedor-catalogo">
-    @foreach (var item in Model)
-    {
-        <div class="producto">
-            <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
-            <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
-            <div class="precio">S/ @Html.DisplayFor(modelItem => item.Precio)</div>
-            <a class="btn btn-editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
-            <a class="btn btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
-            <a class="btn btn-prim form-control" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
-            <a asp-controller="Producto" asp-action="Edit" asp-route-Id="@item.Id"> editame Estado</a>
-        </div>
-    }
+<div class="catalogo">
+    <div class="contenedor-filtro">
+        <form action="">
+            <div class="form-select">
+                <label for="">categoria</label>
+                <select name="Cat">
+                    <option value="0" selected>Todos</option>
+                    @foreach (var item in categoria)
+                    {
+                        <option value="@item.Id">@item.NomCategoria</option>
+                    }
+                </select>
+            </div>
+            <div class="form-select">
+                <label for="">material</label>
+                <select name="Mat">
+                    <option value="0" selected>Todos</option>
+                    @foreach (var item in material)
+                    {
+                        <option value="@item.Id">@item.NomMaterial</option>
+                    }
+                </select>
+            </div>
+            <button class="btn" type="submit">Buscar</button>
+        </form>
+    </div>
+    <div class="contenedor-catalogo">
+        @foreach (var item in product)
+        {
+            <div class="box">
+                <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
+                <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+                <p>S/ @Html.DisplayFor(modelItem => item.Precio)</p>
+                <a class="btn btn-editar" asp-action="Edit" asp-route-id="@item.Id">Editar</a>
+                <a class="btn btn-eliminar" asp-action="Delete" asp-route-id="@item.Id">Eliminar</a>
+                <a class="btn btn-detail" asp-action="Details" asp-route-id="@item.Id">Detalles</a>
+            </div>
+        }
+    </div>
 </div>

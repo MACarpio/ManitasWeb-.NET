@@ -1,0 +1,35 @@
+@model ManitasWeb.Models.Categoria
+
+@{
+    ViewData["Title"] = "Editar";
+}
+
+<form asp-action="Edit" enctype="multipart/form-data">
+    <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Imagen" />
+    <div class="crud-edit">
+        <div class="img-edit">
+            <img class="img-producto" src="@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=Model.Id })" />
+        </div>
+        <div class="crud-form">
+            <h1 class="heading"><span>@ViewData["Title"]</span></h1>
+            <div>
+                <label asp-for="NomCategoria" class="control-label">Nombre de la categoria</label><br>
+                <input asp-for="NomCategoria" class="form-control text-center" />
+            </div>
+            <div>
+                <label asp-for="Imagen" class="control-label">Imagen</label><br>
+                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload"
+                    accept="application/jpg" />
+                <button type="button" id="custom-button" class="btn">Cargar Imagen</button>
+                <span id="custom-text">No selecciono ningun archivo.</span>
+            </div>
+            <div class="editar-btn">
+                <input type="submit" value="Actualizar" class="btn" />
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts {
+@{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

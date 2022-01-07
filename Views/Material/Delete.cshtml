@@ -1,0 +1,25 @@
+@model ManitasWeb.Models.Material
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h1 class="heading"><span>@ViewData["Title"]</span></h1>
+<div class="delete-crud">
+    <h5 class="titulo-prim">Estas seguro que quieres eliminar este material?</h5>
+
+    <dl class="row">
+        <dt>
+            Nombre
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NomMaterial)
+        </dd>
+    </dl>
+
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="ELIMINAR" class="btn btn-eliminar" />
+        <a asp-action="Create" class="btn btn-detail">Regresar la lista de materiales</a>
+    </form>
+</div>

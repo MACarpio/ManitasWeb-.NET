@@ -15679,6 +15679,21 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Categoria\\Delete.cshtml",
+      "TargetPath": "Views\\Categoria\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Material\\Delete.cshtml",
+      "TargetPath": "Views\\Material\\Delete.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Categoria\\Index.cshtml",
+      "TargetPath": "Views\\Categoria\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Proyectos\\ManitasWeb\\Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\_ViewImports.cshtml",
       "FileKind": "mvc"
@@ -15716,6 +15731,11 @@
     {
       "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Producto\\Create.cshtml",
       "TargetPath": "Views\\Producto\\Create.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Categoria\\Edit.cshtml",
+      "TargetPath": "Views\\Categoria\\Edit.cshtml",
       "FileKind": "mvc"
     },
     {

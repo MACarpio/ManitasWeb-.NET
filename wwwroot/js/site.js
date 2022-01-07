@@ -74,3 +74,12 @@ realFileBtn.addEventListener("change", function () {
     customTxt.innerHTML = "No file chosen, yet.";
   }
 });
+function confirmardel() {
+  txt = "si";
+  if (confirm("Estas Seguro que deseas eliminar ?")) {
+    txt = "si";
+  } else {
+    txt = "no";
+  }
+  document.getElementById("delete").value = txt;
+}

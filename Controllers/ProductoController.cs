@@ -8,6 +8,7 @@ using ManitasWeb.Data;
 using ManitasWeb.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
+using System.Dynamic;
 
 namespace ManitasWeb.Controllers
 {
@@ -21,9 +22,27 @@ namespace ManitasWeb.Controllers
         }
 
         // GET: Product
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public async Task<IActionResult> Index(int Cat, int Mat)
         {
-            return View(await _context.Producto.ToListAsync());
+            var empquery = from x in _context.Producto select x;
+            if (Cat != 0)
+            {
+                empquery = empquery.Where(x => x.Categ.Id == Cat);
+            }
+            if (Mat != 0)
+            {
+                empquery = empquery.Where(x => x.Mater.Id == Mat);
+            }
+            var productos = await empquery.ToListAsync();
+            dynamic model = new ExpandoObject();
+            model.prod = productos;
+            var materiales = await _context.Material.ToListAsync();
+            var categorias = await _context.Categoria.ToListAsync();
+            model.mate = materiales;
+            model.cate = categorias;
+
+            return View(model);
         }
 
         // GET: Product/Details/5
@@ -46,18 +65,6 @@ namespace ManitasWeb.Controllers
             return View(product);
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Index(String Searchpro)
-        {
-            ViewData["Getemployeedetails"] = Searchpro;
-            var empquery = from x in _context.Producto select x;
-            if (!string.IsNullOrEmpty(Searchpro))
-            {
-                empquery = empquery.Where(x => x.Nombre.Contains(Searchpro));
-            }
-            return View(await empquery.AsNoTracking().ToListAsync());
-
-        }
         // GET: Product/Create
 
         public IActionResult Create()

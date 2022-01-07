@@ -55,19 +55,16 @@ section {
 }
 
 .btn {
-  margin-top: 1rem;
   display: inline-block;
   padding: 0.8rem 3rem;
   font-size: 1.7rem;
   border-radius: 1.5rem;
-  border: 0.2rem solid var(--black);
   color: var(--black);
   cursor: pointer;
-  background: none;
-  -webkit-border-radius: 1.5rem;
-  -moz-border-radius: 1.5rem;
-  -ms-border-radius: 1.5rem;
-  -o-border-radius: 1.5rem;
+  width: 100%;
+  margin: 1rem 0;
+  border: 0.2rem solid #ddd;
+  background-color: transparent;
 }
 
 .btn:hover {
@@ -762,4 +759,287 @@ section {
 }
 .display-none {
   display: none;
+}
+.crud-form {
+  height: auto;
+  padding: 2% 6%;
+  border-radius: 30px;
+  margin: 0 8% 2% 8%;
+  background-color: #fff;
+  box-shadow: 0 0 6px var(--color-prim);
+}
+.crud-form label {
+  font-size: 1.7rem;
+  display: block;
+  margin: 1rem 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+}
+.crud-form input {
+  font-size: 1.6rem;
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.crud-form input:focus {
+  border: 1px solid var(--color-prim);
+  outline: 1px solid var(--color-prim);
+}
+.crud-form select {
+  font-size: 1.6rem;
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #fff;
+  appearance: auto;
+  overflow: hidden;
+}
+.crud-form select:focus {
+  border: 1px solid var(--color-prim);
+  outline: 1px solid var(--color-prim);
+}
+.crud-form select:focus {
+  background-color: white;
+}
+.crud-form textarea {
+  font-size: 1.6rem;
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.crud-form textarea:focus {
+  border: 1px solid var(--color-prim);
+  outline: 1px solid var(--color-prim);
+}
+.crud-form button {
+  border: 1px solid #ddd;
+}
+#real-file {
+  display: none;
+}
+#custom-text {
+  font-size: 1.5rem;
+}
+.sel {
+  display: flex;
+  gap: 2%;
+}
+.sel div {
+  flex: 1;
+}
+@media (max-width: 768px) {
+  .crud-form {
+    padding: 3% 3%;
+    margin: 0 3% 2% 3%;
+    background-color: #fff;
+    box-shadow: 0 0 6px var(--color-prim);
+  }
+}
+.table-crud {
+  width: 100%;
+  padding-right: 5%;
+}
+.list-crud {
+  border: 1px solid var(--color-prim);
+  width: 100%;
+  border-spacing: 0;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 6px var(--color-prim);
+}
+.table-crud th {
+  font-size: 1.7rem;
+  line-height: 5rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.list-crud td {
+  font-size: 1.6rem;
+  text-align: center;
+  padding: 1rem;
+  border-top: 1px solid var(--color-prim);
+}
+.list-crud tr input {
+  width: 150px;
+  text-align: center;
+}
+.list-crud td img {
+  height: 100px;
+}
+.edit-crud {
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  grid-gap: 1.5rem;
+}
+.btn-editar {
+  margin-top: 0;
+}
+.btn-editar:hover {
+  background-color: #7e8;
+  color: var(--black);
+}
+.btn-eliminar {
+  margin-top: 0;
+}
+.btn-eliminar:hover {
+  background-color: #e78;
+  color: var(--black);
+}
+.btn-detail {
+  margin-top: 0;
+}
+.btn-detail:hover {
+  background-color: var(--color-dom2);
+  color: var(--black);
+}
+.edit-crud .crud-form div #custom-text {
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.part-delete {
+  right: -110%;
+  position: absolute;
+  margin: 150px auto;
+  border: 1px solid red;
+  background-color: #fff;
+  height: auto;
+  width: 350px;
+}
+.part-delete.active {
+  right: 5rem;
+  transition: 0.4s linear;
+}
+.delete-crud {
+  display: flex;
+  flex-direction: column;
+  margin: 0 20% 2% 20%;
+  padding: 2rem 3rem;
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 0 10px var(--color-prim);
+  text-align: center;
+}
+.delete-crud h5 {
+  margin: 0 10% 2% 10%;
+  font-size: 2.5rem;
+  text-transform: capitalize;
+  letter-spacing: 0;
+  color: var(--black);
+  text-shadow: 0 0 5px var(--color-prim);
+}
+.delete-crud dt {
+  color: var(--color-prim);
+  font-size: 2rem;
+  margin: 0 20% 2% 20%;
+  font-weight: bold;
+  text-align: center;
+}
+.delete-crud dd {
+  margin: 0 20% 2% 20%;
+  font-size: 2rem;
+  text-align: center;
+}
+.crud-edit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10% 2% 10%;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+.crud-edit .img-edit {
+  width: 50%;
+  text-align: center;
+  padding: 4%;
+}
+.crud-edit .img-edit img {
+  border-radius: 1.5rem;
+  border: 1px solid var(--color-prim);
+  box-shadow: 0 0 20px 5px var(--color-prim);
+}
+.crud-edit .img-edit {
+  width: 50%;
+  text-align: center;
+}
+.crud-edit .form-edit {
+  background-color: #fff;
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  padding: 4%;
+  box-shadow: 0 0 10px var(--color-prim);
+}
+.crud-edit .form-edit label {
+  font-size: 1.7rem;
+  display: block;
+  margin: 1rem 0;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--black);
+}
+.crud-edit .form-edit input {
+  font-size: 1.6rem;
+  width: 100%;
+  display: block;
+  margin: 1rem 0;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+.crud-form input:focus {
+  border: 1px solid var(--color-prim);
+  outline: 1px solid var(--color-prim);
+}
+.crud-edit .form-edit {
+  text-align: center;
+  display: inline-block;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
+.crud-edit .form-edit .editar-btn {
+  margin-top: 2rem;
+}
+.info-delete {
+  margin-top: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+  width: 100%;
+  gap: 3%;
+}
+.info-delete .delete-img {
+  margin-bottom: 2.5rem;
+}
+.info-delete .delete-img img {
+  width: 100%;
+  border: 1px solid #ddd;
+  border-radius: 5rem;
+  box-shadow: 0rem 0rem 2rem 0 var(--color-prim);
+}
+.info-delete .delete-info {
+  margin-bottom: 2.5rem;
+  min-width: auto;
+}
+.info-delete .delete-info .nom-info {
+  text-align: left;
+  margin: 0 2%;
+}
+.info-delete div h5 {
+  font-size: 2.5rem;
+}
+.form-edit textarea {
+  border: 1px solid #ddd;
+  width: 100%;
+  border-radius: 5px;
 }

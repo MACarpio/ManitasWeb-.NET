@@ -25,6 +25,7 @@ namespace ManitasWeb.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            ViewData["materiales"] = from o in _context.Material select o;
             return View();
         }
 
@@ -35,7 +36,42 @@ namespace ManitasWeb.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Create));
         }
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id, string nombre)
+        {
+            var mat = new Material();
+            mat = await _context.Material.FindAsync(id);
+            mat.NomMaterial = nombre;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Create));
+        }
 
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var mater = await _context.Material.FindAsync(id);
+            if (mater == null)
+            {
+                return NotFound();
+            }
+
+            return View(mater);
+        }
+
+        // POST: Product/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var mater = await _context.Material.FindAsync(id);
+            _context.Material.Remove(mater);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(Create));
+        }
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
