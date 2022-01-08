@@ -176,3 +176,4 @@ D:\Proyectos\ManitasWeb\obj\Debug\net5.0\Razor\Views\Material\Delete.cshtml.g.cs
 D:\Proyectos\ManitasWeb\obj\Debug\net5.0\Razor\Views\Categoria\Delete.cshtml.g.cs
 D:\Proyectos\ManitasWeb\obj\Debug\net5.0\Razor\Views\Categoria\Edit.cshtml.g.cs
 D:\Proyectos\ManitasWeb\obj\Debug\net5.0\Razor\Views\Categoria\Index.cshtml.g.cs
+D:\Proyectos\ManitasWeb\obj\Debug\net5.0\Razor\Views\Home\AboutUs.cshtml.g.cs

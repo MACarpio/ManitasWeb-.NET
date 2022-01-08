@@ -10,7 +10,7 @@
         <a asp-controller="Home" asp-action="Index">Inicio</a>
         <a asp-controller="Producto" asp-action="Index" asp-route-Cat="0" asp-route-Mat="0">Productos</a>
         <a asp-controller="Categoria" asp-action="Index">Categorias</a>
-        <a href="#review">Nosotros</a>
+        <a asp-controller="Home" asp-action="AboutUs">Nosotros</a>
     </nav>
 
 }
@@ -19,8 +19,7 @@ else
     <nav class="navbar">
         <a asp-controller="Home" asp-action="Index">Inicio</a>
         <a asp-controller="Catalogo" asp-action="Index" asp-route-Cat="0" asp-route-Mat="0">Productos</a>
-        <a href="#categories">Categorias</a>
-        <a href="#review">Nosotros</a>
-        <a asp-controller="Categoria" asp-action="Create">Contactanos</a>
+        <a asp-controller="Categoria" asp-action="Index">Categorias</a>
+        <a asp-controller="Home" asp-action="AboutUs">Nosotros</a>
     </nav>
 }

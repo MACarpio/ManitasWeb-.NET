@@ -26,6 +26,7 @@ namespace ManitasWeb.Controllers
         }
         public IActionResult Index()
         {
+            ViewData["categorias"] = from o in _context.Categoria select o;
             return View();
         }
 

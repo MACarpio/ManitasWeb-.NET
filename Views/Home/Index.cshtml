@@ -64,7 +64,7 @@
         <div class="swiper-wrapper">
         @foreach (var item in product)
                 {
-                    @if(item.Home =="Home"){
+                    @if(item.Home =="Activo"){
                         <div class="swiper-slide box">
                             <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
                             <h3>@item.Nombre</h3>

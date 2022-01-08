@@ -15679,6 +15679,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Home\\AboutUs.cshtml",
+      "TargetPath": "Views\\Home\\AboutUs.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "d:\\Proyectos\\ManitasWeb\\Views\\Categoria\\Delete.cshtml",
       "TargetPath": "Views\\Categoria\\Delete.cshtml",
       "FileKind": "mvc"

@@ -1,11 +1,11 @@
 @model ManitasWeb.Models.Producto
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Editar";
 }
-
+<h1 class="heading"> <span>@ViewData["Title"]</span> </h1>
 <form asp-action="Edit" enctype="multipart/form-data">
-    <div class="crud-edit">
+    <div class="crud-edit ">
         <div class="img-edit">
             <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
                 alt="@Html.DisplayFor(model => model.ImagenNom)" />
@@ -16,6 +16,7 @@
             <input type="hidden" asp-for="Imagen" />
             <input type="hidden" asp-for="ImagenNom" />
             <div class="form-group">
+                <label asp-for="Nombre" class="control-label text-center">Nombre</label>
                 <input asp-for="Nombre" class="form-control text-center" />
             </div>
             <div class="form-group">
@@ -57,15 +58,24 @@
             <div class="form-group">
                 <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload"
                     accept="application/jpg" />
-                <button type="button" id="custom-button">Cargar Imagen</button>
+                <button type="button" id="custom-button" class="btn ">Cargar Imagen</button>
                 <span id="custom-text">No selecciono ningun archivo.</span>
             </div>
-            <div class="form-group">
-                <label asp-for="Estado" class="control-label">Estado</label>
-                <select asp-for="Estado" class="custom-select form-control">
-                    <option value="Activo">Activo</option>
-                    <option value="Inactivo">Inactivo</option>
-                </select>
+            <div class="sel">
+                <div>
+                    <label asp-for="Estado" class="control-label">Estado</label>
+                    <select asp-for="Estado" class="custom-select form-control">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
+                <div>
+                    <label asp-for="Home" class="control-label">Inicio</label>
+                    <select asp-for="Home" class="custom-select form-control">
+                        <option value="Activo">Activo</option>
+                        <option value="Inactivo">Inactivo</option>
+                    </select>
+                </div>
             </div>
             <div class="editar-btn">
                 <input type="submit" value="Actualizar" class="btn btn-prim btn-completo" />

@@ -44,12 +44,16 @@
   <div class="contenedor-catalogo">
     @foreach (var item in product)
     {
-      <div class="box">
-        <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
-        <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
-        <p>S/ @Html.DisplayFor(modelItem => item.Precio)</p>
-        <a class="btn" asp-action="Details" asp-route-Id="@item.Id">Detalles</a>
-      </div>
+      @if (item.Estado.Equals("Activo"))
+      {
+        <div class="box">
+          <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
+          <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
+          <p>S/ @Html.DisplayFor(modelItem => item.Precio)</p>
+          <a class="btn" asp-action="Details" asp-route-Id="@item.Id">Detalles</a>
+        </div>
+      }
+
     }
   </div>
 </div>

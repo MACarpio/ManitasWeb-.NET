@@ -1,1 +1,21 @@
-adasd
+@model ManitasWeb.Models.Categoria
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1 class="heading"> Nuestras <span>@ViewData["Title"]</span> </h1>
+<div class="contenedor-categorias">
+    @foreach (var item in (IEnumerable<Categoria>)ViewData["categorias"])
+    {
+
+        <div class="categoria-item"
+        style="background:url(@Url.ActionLink("MostrarImagenCat","Catalogo",new { id=item.Id })); background-size: cover;background-position: center;">
+            <h5 class="tit-categoria">@item.NomCategoria</h5>
+            <a asp-controller="Catalogo" asp-action="Index" asp-route-Cat="@item.Id" asp-route-Mat="0" class="btn">Ver
+                Productos</a>
+            <div class="backgroud-categ"></div>
+        </div>
+
+
+    }
+</div>
