@@ -38,22 +38,15 @@ var swiper = new Swiper(".product-slider", {
 });
 
 var swiper = new Swiper(".review-slider", {
-  loop: true,
+  loop: false,
   spaceBetween: 20,
-  autoplay: {
-    delay: 6000,
-    disableOnInteraction: false,
-  },
-  centeredSlides: true,
+  centeredSlides: false,
   breakpoints: {
     0: {
       slidesPerView: 1,
     },
     768: {
       slidesPerView: 2,
-    },
-    1020: {
-      slidesPerView: 3,
     },
   },
 });

@@ -128,7 +128,23 @@ section {
   background: var(--color-prim);
   color: #fff;
 }
+.header .fa-bars {
+  height: 4.5rem;
+  width: 4.5rem;
+  line-height: 4.5rem;
+  border-radius: 0.5rem;
+  background: #eee;
+  color: var(--black);
+  font-size: 2rem;
+  margin-left: 0.3rem;
+  cursor: pointer;
+  text-align: center;
+}
 
+.header .fa-bars:hover {
+  background: var(--color-prim);
+  color: #fff;
+}
 #menu-btn {
   display: none;
 }
@@ -485,7 +501,7 @@ section {
 
 @media (max-width: 991px) {
   html {
-    font-size: 45%;
+    font-size: 48%;
   }
 
   .header {
@@ -535,7 +551,7 @@ section {
 
 @media (max-width: 450px) {
   html {
-    font-size: 40%;
+    font-size: 46%;
   }
 
   .heading {
@@ -1158,4 +1174,22 @@ section {
 }
 .mt-0 {
   margin: 1rem 0;
+}
+@media (max-width: 768px) {
+  .edit-crud {
+    display: flex;
+    flex-direction: column;
+  }
+  .table-crud {
+    margin: 0 3%;
+  }
+  .list-crud td img {
+    height: 7rem;
+  }
+  .list-crud td {
+    font-size: 1.2rem;
+  }
+  .table-crud th {
+    font-size: 1.4rem;
+  }
 }
