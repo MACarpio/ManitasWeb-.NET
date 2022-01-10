@@ -69,7 +69,7 @@
                             <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="@item.ImagenNom">
                             <h3>@item.Nombre</h3>
                             <div class="price"> s/ @item.Precio </div>
-                            <a asp-action="Details" asp-route-Id="@item.Id" class="btn">Detalles</a>
+                            <a asp-controller="Catalogo" asp-action="Details" asp-route-Id="@item.Id" class="btn">Detalles</a>
                         </div>
                     }
                 }
