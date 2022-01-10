@@ -219,7 +219,7 @@ namespace ManitasWeb.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Producto.FindAsync(id);
-            product.Estado = "ELIMINADO";
+            _context.Producto.Remove(product);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
