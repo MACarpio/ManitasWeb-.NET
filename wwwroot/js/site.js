@@ -21,7 +21,7 @@ var swiper = new Swiper(".product-slider", {
   spaceBetween: 20,
   autoplay: {
     delay: 6000,
-    disableOnInteraction: true,
+    disableOnInteraction: false,
   },
   centeredSlides: true,
   breakpoints: {
