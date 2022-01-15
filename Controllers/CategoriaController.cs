@@ -10,6 +10,7 @@ using ManitasWeb.Data;
 using Microsoft.AspNetCore.Http;
 using System.IO;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManitasWeb.Controllers
 {
@@ -24,6 +25,8 @@ namespace ManitasWeb.Controllers
             _logger = logger;
             _context = context;
         }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             ViewData["categorias"] = from o in _context.Categoria select o;
@@ -31,6 +34,7 @@ namespace ManitasWeb.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["categorias"] = from o in _context.Categoria select o;
@@ -38,6 +42,7 @@ namespace ManitasWeb.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Categoria categoria, List<IFormFile> upload)
         {
             if (ModelState.IsValid)
@@ -64,6 +69,7 @@ namespace ManitasWeb.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,6 +88,7 @@ namespace ManitasWeb.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, Categoria categoria, List<IFormFile> upload)
         {
             if (id != categoria.Id)
@@ -113,6 +120,8 @@ namespace ManitasWeb.Controllers
             }
             return View(categoria);
         }
+
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -132,6 +141,7 @@ namespace ManitasWeb.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var mater = await _context.Categoria.FindAsync(id);

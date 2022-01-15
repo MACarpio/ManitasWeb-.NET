@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using ManitasWeb.Models;
 using Microsoft.Extensions.Logging;
 using ManitasWeb.Data;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManitasWeb.Controllers
 {
@@ -23,6 +24,7 @@ namespace ManitasWeb.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["materiales"] = from o in _context.Material select o;
@@ -30,6 +32,7 @@ namespace ManitasWeb.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public IActionResult Create(Material objMaterial)
         {
             _context.Add(objMaterial);
@@ -37,6 +40,7 @@ namespace ManitasWeb.Controllers
             return RedirectToAction(nameof(Create));
         }
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, string nombre)
         {
             var mat = new Material();
@@ -45,7 +49,7 @@ namespace ManitasWeb.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(Create));
         }
-
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -65,6 +69,7 @@ namespace ManitasWeb.Controllers
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var mater = await _context.Material.FindAsync(id);

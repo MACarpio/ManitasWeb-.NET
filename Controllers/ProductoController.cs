@@ -9,6 +9,7 @@ using ManitasWeb.Models;
 using System.IO;
 using Microsoft.AspNetCore.Http;
 using System.Dynamic;
+using Microsoft.AspNetCore.Authorization;
 
 namespace ManitasWeb.Controllers
 {
@@ -23,6 +24,7 @@ namespace ManitasWeb.Controllers
 
         // GET: Product
         [HttpGet]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index(int Cat, int Mat)
         {
             var empquery = from x in _context.Producto select x;
@@ -46,6 +48,7 @@ namespace ManitasWeb.Controllers
         }
 
         // GET: Product/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -67,6 +70,7 @@ namespace ManitasWeb.Controllers
 
         // GET: Product/Create
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             ViewData["materiales"] = from o in _context.Material select o;
@@ -78,6 +82,7 @@ namespace ManitasWeb.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Create(Producto product, List<IFormFile> upload, int? categori, int? materia)
         {
             if (ModelState.IsValid)
@@ -110,6 +115,7 @@ namespace ManitasWeb.Controllers
         }
 
         // GET: Product/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -130,6 +136,7 @@ namespace ManitasWeb.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int id, Producto product, List<IFormFile> upload, int? categori, int? materia)
         {
             if (id != product.Id)
@@ -195,6 +202,7 @@ namespace ManitasWeb.Controllers
         }
 
         // GET: Product/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -216,6 +224,7 @@ namespace ManitasWeb.Controllers
 
         // POST: Product/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var product = await _context.Producto.FindAsync(id);
