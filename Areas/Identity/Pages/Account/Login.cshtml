@@ -16,11 +16,10 @@
             <h1 class="heading"><span>@ViewData["Title"]</span> </h1>
             <div asp-validation-summary="All" class="text-danger"></div>
             <label asp-for="Input.Email" class="control-label">Correo :</label>
-            <input asp-for="Input.Email" class="form-control" placeholder="Escriba su nombre completo" type="text"
-                required />
+            <input asp-for="Input.Email" class="form-control" placeholder="Escriba su correo" type="text" required />
             <span asp-validation-for="Input.Email" class="text-danger"></span>
             <label asp-for="Input.Password" class="control-label">Contraseña :</label>
-            <input asp-for="Input.Password" class="form-control" placeholder="Escriba su email" type="password"
+            <input asp-for="Input.Password" class="form-control" placeholder="Escriba su contraseña" type="password"
                 required />
             <span asp-validation-for="Input.Password" class="text-danger"></span>
 
