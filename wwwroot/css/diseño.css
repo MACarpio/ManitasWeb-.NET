@@ -604,6 +604,8 @@ section {
 .catalogo .contenedor-catalogo .box img {
   margin: 1rem 0;
   width: 80%;
+  height: 30vh;
+  object-fit: contain;
   border-radius: 10%;
   -webkit-border-radius: 10%;
   -moz-border-radius: 10%;
@@ -704,8 +706,7 @@ section {
 }
 
 .img-detalles {
-  border: 2px solid #ddd;
-  box-shadow: 0 0 3rem 0px #ffb4ac;
+  box-shadow: 0 0 0.5rem 0px #ffb4ac;
   width: 50%;
   height: auto;
   margin-bottom: 2rem;
