@@ -19,7 +19,7 @@
   <div class="contenedor-filtro">
     <form action="">
       <div class="form-select">
-        <label for="">categoria</label>
+        <label for="">Categoría</label>
         <select name="Cat">
           <option value="0" selected>Todos</option>
           @foreach (var item in categoria)
@@ -29,7 +29,7 @@
         </select>
       </div>
       <div class="form-select">
-        <label for="">material</label>
+        <label for="">Material</label>
         <select name="Mat">
           <option value="0" selected>Todos</option>
           @foreach (var item in material)
@@ -50,7 +50,10 @@
           <img src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=item.Id })" alt="">
           <h3>@Html.DisplayFor(modelItem => item.Nombre)</h3>
           <p>S/ @Html.DisplayFor(modelItem => item.Precio)</p>
-          <a class="btn" asp-action="Details" asp-route-Id="@item.Id">Detalles</a>
+          <div class="btn-catalogo">
+            <a class="btn" asp-action="Details" asp-route-Id="@item.Id">Detalles</a>
+          </div>
+
         </div>
       }
 

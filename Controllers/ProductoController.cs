@@ -83,13 +83,12 @@ namespace ManitasWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(Producto product, List<IFormFile> upload, int? categori, int? materia)
+        public async Task<IActionResult> Create(Producto product, List<IFormFile> upload, List<IFormFile> upload2, List<IFormFile> upload3, int? categori, int? materia)
         {
             if (ModelState.IsValid)
             {
                 if (upload.Count > 0)
                 {
-
                     foreach (var up in upload)
                     {
                         Stream str = up.OpenReadStream();
@@ -97,6 +96,26 @@ namespace ManitasWeb.Controllers
                         Byte[] fileDet = br.ReadBytes((Int32)str.Length);
                         product.Imagen = fileDet;
                         product.ImagenNom = Path.GetFileName(up.FileName);
+                    }
+                }
+                if (upload2.Count > 0)
+                {
+                    foreach (var up in upload2)
+                    {
+                        Stream str = up.OpenReadStream();
+                        BinaryReader br = new BinaryReader(str);
+                        Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                        product.Imagen2 = fileDet;
+                    }
+                }
+                if (upload3.Count > 0)
+                {
+                    foreach (var up in upload3)
+                    {
+                        Stream str = up.OpenReadStream();
+                        BinaryReader br = new BinaryReader(str);
+                        Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                        product.Imagen3 = fileDet;
                     }
                 }
                 var materiales = new Material();
@@ -137,7 +156,7 @@ namespace ManitasWeb.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Edit(int id, Producto product, List<IFormFile> upload, int? categori, int? materia)
+        public async Task<IActionResult> Edit(int id, Producto product, List<IFormFile> upload, List<IFormFile> upload2, List<IFormFile> upload3, int? categori, int? materia)
         {
             if (id != product.Id)
             {
@@ -148,14 +167,7 @@ namespace ManitasWeb.Controllers
             {
                 try
                 {
-                    if (upload == null || upload.Count <= 0)
-                    {
-                        byte[] imagen = product.Imagen;
-                        var nom = product.ImagenNom;
-                        product.Imagen = imagen;
-                        product.ImagenNom = nom;
-                    }
-                    else
+                    if (upload.Count > 0)
                     {
                         foreach (var up in upload)
                         {
@@ -164,6 +176,26 @@ namespace ManitasWeb.Controllers
                             Byte[] fileDet = br.ReadBytes((Int32)str.Length);
                             product.Imagen = fileDet;
                             product.ImagenNom = Path.GetFileName(up.FileName);
+                        }
+                    }
+                    if (upload2.Count > 0)
+                    {
+                        foreach (var up in upload2)
+                        {
+                            Stream str = up.OpenReadStream();
+                            BinaryReader br = new BinaryReader(str);
+                            Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                            product.Imagen2 = fileDet;
+                        }
+                    }
+                    if (upload3.Count > 0)
+                    {
+                        foreach (var up in upload3)
+                        {
+                            Stream str = up.OpenReadStream();
+                            BinaryReader br = new BinaryReader(str);
+                            Byte[] fileDet = br.ReadBytes((Int32)str.Length);
+                            product.Imagen3 = fileDet;
                         }
                     }
                     if (materia != 99999)

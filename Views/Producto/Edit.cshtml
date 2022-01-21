@@ -6,14 +6,27 @@
 <h1 class="heading"> <span>@ViewData["Title"]</span> </h1>
 <form asp-action="Edit" enctype="multipart/form-data">
     <div class="crud-edit ">
-        <div class="img-edit">
-            <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
-                alt="@Html.DisplayFor(model => model.ImagenNom)" />
+        <div class="img-detalles">
+            <div class="swiper-img">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img class="img-producto"
+                            src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+                            alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+                    <div class="swiper-slide"><img class="img-producto"
+                            src="@Url.ActionLink("MostrarImagen2","Catalogo",new { id=Model.Id })"
+                            alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+                    <div class="swiper-slide"><img class="img-producto"
+                            src="@Url.ActionLink("MostrarImagen3","Catalogo",new { id=Model.Id })"
+                            alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+                </div>
+            </div>
         </div>
         <div class="form-edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="Imagen" />
+            <input type="hidden" asp-for="Imagen2" />
+            <input type="hidden" asp-for="Imagen3" />
             <input type="hidden" asp-for="ImagenNom" />
             <div class="form-group">
                 <label asp-for="Nombre" class="control-label text-center">Nombre</label>
@@ -52,15 +65,42 @@
                 </div>
             </div>
 
-            <div class="form-group" style="margin-bottom: -2px;">
-                <label asp-for="Imagen" class="control-label">Imagen</label>
+            <div class="img-btns">
+                <div>
+                    <div class="form-group" style="margin-bottom: -2px;">
+                        <label asp-for="Imagen" class="control-label">Imagen</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload"
+                            accept="application/jpg" />
+                        <button type="button" id="custom-button" class="btn ">Cargar Imagen</button>
+                        <span id="custom-text">No selecciono ningun archivo.</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group" style="margin-bottom: -2px;">
+                        <label asp-for="Imagen2" class="control-label">Imagen</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="real-file2" hidden="hidden" asp-for="Imagen2" name="upload2"
+                            accept="application/jpg" />
+                        <button type="button" id="custom-button2" class="btn ">Cargar Imagen</button>
+                        <span id="custom-text2">No selecciono ningun archivo.</span>
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group" style="margin-bottom: -2px;">
+                        <label asp-for="Imagen3" class="control-label">Imagen</label>
+                    </div>
+                    <div class="form-group">
+                        <input type="file" id="real-file3" hidden="hidden" asp-for="Imagen3" name="upload3"
+                            accept="application/jpg" />
+                        <button type="button" id="custom-button3" class="btn ">Cargar Imagen</button>
+                        <span id="custom-text3">No selecciono ningun archivo.</span>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <input type="file" id="real-file" hidden="hidden" asp-for="Imagen" name="upload"
-                    accept="application/jpg" />
-                <button type="button" id="custom-button" class="btn ">Cargar Imagen</button>
-                <span id="custom-text">No selecciono ningun archivo.</span>
-            </div>
+
             <div class="sel">
                 <div>
                     <label asp-for="Estado" class="control-label">Estado</label>

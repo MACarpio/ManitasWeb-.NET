@@ -7,8 +7,19 @@
   <h1 class="heading titulo-detalles"><span>@Html.DisplayFor(model => model.Nombre)</span> </h1>
   <div class="details-content">
     <div class="img-detalles">
-      <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
-        alt="@Html.DisplayFor(model => model.ImagenNom)" />
+      <div class="swiper-img">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen2","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen3","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+        </div>
+      </div>
     </div>
     <div class="info-detalles">
       <label class="dec-label">Descripción</label>
@@ -19,6 +30,8 @@
       <p class="desc-product">@Html.DisplayFor(model => model.Mater.NomMaterial)</p>
       <label class="dec-label">Precio</label>
       <h5 class="desc-product precio">S/ @Html.DisplayFor(model => model.Precio)</h5>
+      <a href="https://api.whatsapp.com/send?phone=51992141933&text=%C2%A1Hola!%20Quisiera%20mas%20información%20sobre%20su%20producto @Html.DisplayFor(model => model.Nombre) "
+        target="_blank" class="btn" style="text-align:center;width:150px">Contactanos</a>
     </div>
   </div>
 </div>

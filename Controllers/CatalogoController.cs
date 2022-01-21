@@ -59,10 +59,23 @@ namespace ManitasWeb.Controllers
             }
             return View(objProduct);
         }
+
         public IActionResult MostrarImagen(int id)
         {
             var producto = _context.Producto.Find(id);
             byte[] imagen = producto.Imagen;
+            return File(imagen, "images/png");
+        }
+        public IActionResult MostrarImagen2(int id)
+        {
+            var producto = _context.Producto.Find(id);
+            byte[] imagen = producto.Imagen2;
+            return File(imagen, "images/png");
+        }
+        public IActionResult MostrarImagen3(int id)
+        {
+            var producto = _context.Producto.Find(id);
+            byte[] imagen = producto.Imagen3;
             return File(imagen, "images/png");
         }
         public IActionResult MostrarImagenCat(int id)

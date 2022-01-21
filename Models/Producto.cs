@@ -17,6 +17,8 @@ namespace ManitasWeb.Models
         public Decimal Precio { get; set; }
         public String ImagenNom { get; set; }
         public Byte[] Imagen { get; set; }
+        public Byte[] Imagen2 { get; set; }
+        public Byte[] Imagen3 { get; set; }
         public DateTime Registro { get; set; }
         public String Estado { get; set; }
         [Column("CategId")]

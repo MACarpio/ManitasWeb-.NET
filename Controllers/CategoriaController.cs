@@ -26,7 +26,6 @@ namespace ManitasWeb.Controllers
             _context = context;
         }
 
-        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             ViewData["categorias"] = from o in _context.Categoria select o;

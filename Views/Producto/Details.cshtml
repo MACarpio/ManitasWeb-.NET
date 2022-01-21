@@ -8,8 +8,19 @@
   <h1 class="heading titulo-detalles"><span>@Html.DisplayFor(model => model.Nombre)</span> </h1>
   <div class="details-content">
     <div class="img-detalles">
-      <img class="img-producto" src="@Url.ActionLink("MostrarImagen","Producto",new { id=Model.Id })"
-        alt="@Html.DisplayFor(model => model.ImagenNom)" />
+      <div class="swiper-img">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen2","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+          <div class="swiper-slide"><img class="img-producto"
+              src="@Url.ActionLink("MostrarImagen3","Catalogo",new { id=Model.Id })"
+              alt="@Html.DisplayFor(model => model.ImagenNom)" /></div>
+        </div>
+      </div>
     </div>
     <div class="info-detalles">
       <p class="dec-label">Descripción</p>
