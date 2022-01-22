@@ -714,16 +714,15 @@ section {
 }
 
 .img-detalles {
-  box-shadow: 0 0 0.5rem 0px #ffb4ac;
   width: 100%;
   height: auto;
-  margin-bottom: 2rem;
-  border-radius: 2rem;
   overflow: hidden;
 }
 .img-producto {
   width: 100%;
+  height: 70vh;
   object-fit: cover;
+  box-shadow: 0 0 0.5rem 0px #ffb4ac;
 }
 .info-detalles {
   width: 100%;
